@@ -1,0 +1,238 @@
+<html>
+<title>JavaScipt</title>
+
+<head>
+    <script type="text/javascript" src="demo.js">
+    </script>
+
+    <!-- Conditional Statement -->
+    <script>
+        // if, else and else if statement
+        document.write("<h2>Conditional Statement</h2>")
+        var num = 5;
+        if (num % 2 == 0) {
+            document.write(num + "<p>is Even Number</p>");
+        } else {
+            document.write("<p>" + num + " is Odd Number</p>")
+        }
+    </script>
+
+    <!-- switch statement -->
+    <script>
+        document.write("<h2>Switch Statement</h2>")
+        var num = 10;
+        switch (num % 2 == 0) {
+            case true:
+                {
+                    document.write("<p>" + num + " is Even Number</p>");
+                    break;
+                }
+            case false:
+                {
+                    document.write("<p>" + num + " is Odd Number</p>");
+                    break;
+                }
+        }
+    </script>
+
+    <!-- While Loop -->
+    <script>
+        var i = 0;
+        document.write("<h2>While Loop</h2>")
+        while (i < 5) {
+            i++;
+            document.write("<p>This is Number is: " + i + "</p>")
+        }
+    </script>
+
+    <!-- do While Loop -->
+    <script>
+        var i = 0;
+        document.write("<h2>Do While Loop</h2>")
+        do {
+            i++;
+            document.write("<p>This is Number is: " + i + "</p>")
+        }
+        while (i < 5);
+
+    </script>
+
+    <!-- Functions -->
+
+    <!-- Scope of Variables -->
+
+    <!-- Array -->
+
+    <!-- Objets -->
+
+    <!-- DOM Manipulation -->
+    <script>
+        // DOM manipulations & getelementbyId method
+        function buttonClick() {
+            var str = document.getElementById("heading2").innerHTML;
+            alert(str);
+        }
+    </script>
+
+    <!-- Text input from user -->
+    <script>
+        function fun1() {
+            var str = document.getElementById("txt1").value;
+            alert("Value inside the text box is: " + str);
+        }
+    </script>
+    <!-- Taking input from Radiobutton -->
+    <script>
+        function fun2() {
+            var rd1 = document.getElementById("rd1");
+            var rd2 = document.getElementById("rd2");
+
+            if (rd1.checked == true) {
+                alert(rd1.value);
+            } else if (rd2.checked == true) {
+                alert(rd2.value)
+            } else {
+                alert("No channel selected");
+            }
+        }
+    </script>
+    <!-- Taking input from SelectedBox -->
+    <script>
+        function fun3() {
+            var select = document.getElementById("selectbox")
+            alert(select.options[select.selectedIndex].value);
+        }
+        function fun4() {
+            var para = document.getElementsByTagName("p");
+            for (var i = 0; i < para.length; i++) {
+                para[i].style.color = "red";
+            }
+        }
+        function fun5() {
+            var mypara = document.getElementsByClassName("mypara");
+            for (var i = 0; i < mypara.length; i++) {
+                mypara[i].style.color = "blue";
+            }
+        }
+        function setNewImg() {
+            document.getElementById("img1").src = "Assets/CSSlogo.jpg";
+        }
+        function setOldImg() {
+            document.getElementById("img1").src = "Assets/Logo_png.png";
+        }
+        function validate() {
+            var uname = document.getElementById("uname");
+            var password = document.getElementById("password");
+
+            if (uname.value == "" || password.value == "") {
+                alert("No blank values allowed");
+                return false;
+            }
+            else {
+                true;
+            }
+        }
+        function validate1() {
+            var uname = document.getElementById("uname1");
+            var password = document.getElementById("password1");
+
+            if (uname.value == "") {
+                uname.style.border = "solid  2px red";
+                document.getElementById("uCheck").style.visibility="visible";
+                // alert("User Name is Empty");
+                return false;
+            }else if(password.value == ""){
+                // alert("Password too short");
+                password.style.border = "solid 2px red";
+                document.getElementById("uCheck1").style.visibility="visible";
+                return false;
+            }
+            else if(password.value.trim().length < 5) {
+                alert("Password too short");
+                document.getElementById("uCheck1").style.visibility="visible";
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+        function validate3()
+        {
+            var username = getElementById("uname2");
+            var regx = /E00/;
+            if(regx.test(username))
+            {
+                alert("Valid User Name");
+            }else{
+                alert("Invalid User Name");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <hr>
+    <h3>DOM manipulations & getelementbyId method</h3>
+    <button onclick="buttonClick()">Click Me</button>
+    <p id="heading2"><a>Some Random Text</a></p>
+    <hr>
+    <h3>Text input from user</h3>
+    <input type="text" id="txt1" placeholder="enter a name">
+    <button onclick="fun1()">submit</button>
+    <hr>
+    <h3>Taking input from Radiobutton</h3>
+    <input type="radio" value="one" name="grp1" id="rd1">One</input><br>
+    <input type="radio" value="two" name="grp1" id="rd2">Two</input><br>
+    <button onclick="fun2()">Click me </button>
+    <hr>
+    <h3>Taking input from SelectedBox</h3>
+    <select id="selectbox">
+        <option value="one">one</option>
+        <option value="two">two</option>
+        <option value="three">Three</option>
+    </select>
+    <br><br>
+    <button onclick="fun3()">Click</button>
+    <hr>
+    <h3>Get Element by Tag Name</h3>
+    <p>This is Paragraph 1</p>
+    <p>This is Paragraph 2</p>
+    <p>This is Paragraph 3</p>
+    <p>This is Paragraph 4</p>
+    <p>This is Paragraph 5</p>
+    <br>
+    <button onclick="fun4()">Click</button>
+    <hr>
+    <h3>Get Element by Class Name</h3>
+    <p class="mypara">This is Paragraph 1</p>
+    <p>This is Paragraph 2</p>
+    <p class="mypara">This is Paragraph 3</p>
+    <p>This is Paragraph 4</p>
+    <p class="mypara">This is Paragraph 5</p>
+    <button onclick="fun5()">click</button>
+    <hr>
+    <h3>onmouseover & onmouseout</h3>
+    <img id="img1" onmouseover="setNewImg()" onmouseout="setOldImg()" src="Assets/primary_logo.svg">
+    <hr>
+    <h3>Form Validations</h3>
+    <form onsubmit="return validate()" action="message.html">
+        <input id="uname" type="text" placeholder="UserName"><br><br>
+        <input id="password" type="password" placeholder="password"><br><br>
+        <button>Submit</button>
+    </form>
+    <hr>
+    <h3>Form Validations part2</h3>
+    <form onsubmit="return validate1()" action="message.html">
+        <input id="uname1" type="text" placeholder="UserName"><label id ="uCheck" style="color: red; visibility: hidden;"> Invalid</label><br><br>
+        <input id="password1" type="password" placeholder="password"><label id ="uCheck1" style="color: red; visibility: hidden;"> Invalid</label><br><br>
+        <button>Submit</button>
+    </form>
+    <hr>
+    <h3>Regular Expression</h3>
+    <form onsubmit="return validate3()">
+        <input id="uname2" type="text" placeholder="UserName"><label id ="uCheck" style="color: red; visibility: hidden;"> Invalid</label><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
