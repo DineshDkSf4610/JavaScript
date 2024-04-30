@@ -1,1 +1,0 @@
-document.write("<h1>Extranel File</h1>")
