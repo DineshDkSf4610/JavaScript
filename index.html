@@ -138,36 +138,64 @@
 
             if (uname.value == "") {
                 uname.style.border = "solid  2px red";
-                document.getElementById("uCheck").style.visibility="visible";
+                document.getElementById("uCheck").style.visibility = "visible";
                 // alert("User Name is Empty");
                 return false;
-            }else if(password.value == ""){
+            } else if (password.value == "") {
                 // alert("Password too short");
                 password.style.border = "solid 2px red";
-                document.getElementById("uCheck1").style.visibility="visible";
+                document.getElementById("uCheck1").style.visibility = "visible";
                 return false;
             }
-            else if(password.value.trim().length < 5) {
+            else if (password.value.trim().length < 5) {
                 alert("Password too short");
-                document.getElementById("uCheck1").style.visibility="visible";
+                document.getElementById("uCheck1").style.visibility = "visible";
                 return false;
             }
-            else{
+            else {
                 return true;
             }
         }
-        function validate3()
-        {
+        function validate3() {
             var username = getElementById("uname2");
             var regx = /E00/;
-            if(regx.test(username))
-            {
+            if (regx.test(username.value)) {
                 alert("Valid User Name");
-            }else{
+            } else {
                 alert("Invalid User Name");
             }
         }
+        function validate4() {
+            // alert();
+            var input = document.getElementById("num1");
+            var regx = /^[8-9]\d{9}$/;
+
+            if (!regx.test(input.value)) {
+                document.getElementById("numCheck").style.visibility = "visible";
+                input.style.border = "solid 1px red"
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        function validate5() {
+            // alert();
+            var input = document.getElementById("num2")
+            // alert();
+            var regx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (!regx.test(input.value)) {
+                document.getElementById("emailCheck").style.visibility = "visible";
+                input.style.border = "solid 1px red";
+                return false;
+            } else {
+                return true;
+            }
+        }
     </script>
+
+    <!-- /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; -->
 </head>
 
 <body>
@@ -223,14 +251,31 @@
     <hr>
     <h3>Form Validations part2</h3>
     <form onsubmit="return validate1()" action="message.html">
-        <input id="uname1" type="text" placeholder="UserName"><label id ="uCheck" style="color: red; visibility: hidden;"> Invalid</label><br><br>
-        <input id="password1" type="password" placeholder="password"><label id ="uCheck1" style="color: red; visibility: hidden;"> Invalid</label><br><br>
+        <input id="uname1" type="text" placeholder="UserName"><label id="uCheck"
+            style="color: red; visibility: hidden;"> Invalid</label><br><br>
+        <input id="password1" type="password" placeholder="password"><label id="uCheck1"
+            style="color: red; visibility: hidden;"> Invalid</label><br><br>
         <button>Submit</button>
     </form>
     <hr>
     <h3>Regular Expression</h3>
     <form onsubmit="return validate3()">
-        <input id="uname2" type="text" placeholder="UserName"><label id ="uCheck" style="color: red; visibility: hidden;"> Invalid</label><br><br>
+        <input id="uname2" type="text" placeholder="UserName"><label id="uCheck"
+            style="color: red; visibility: hidden;"> Invalid</label><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <hr>
+    <h3>Phone Number Validation</h3>
+    <form onsubmit="return validate4()">
+        <input type="number" id="num1" placeholder="Enter a Phone Number"><label id="numCheck"
+            style="color: red; visibility: hidden;"> Invalid</label><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <hr>
+    <h3>Email Validation</h3>
+    <form onsubmit="return validate5()">
+        <input type="text" id="num2" placeholder="Enter Email ID"><label id="emailCheck"
+            style="color: red; visibility: hidden;"> Invalid</label><br><br>
         <button type="submit">Submit</button>
     </form>
 </body>

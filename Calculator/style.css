@@ -1,0 +1,17 @@
+.table-style {
+    border: 1px solid red;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    
+}
+
+.input-form  {
+    width: 100%;
+    height: 50px;
+    text-align: right;
+}
+.txt {
+    text-align: center;
+    font-weight: bold;
+}
